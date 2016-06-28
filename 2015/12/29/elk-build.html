@@ -117,34 +117,6 @@ Elasticsearch + Logstash + Kibana（ELK）是一套开源的日志管理方案�
 <li>  redis - <a href="http://redis.io/download">http://redis.io/download</a></li>
 </ul>
 
-<h2>设置FQDN</h2>
-
-<blockquote>
-<p>创建SSL证书的时候需要配置FQDN</p>
-</blockquote>
-<div class="highlight"><pre><code class="language-text" data-lang="text">#修改hostname
-cat /etc/hostname
-elk
-
-#修改hosts
-cat /etc/hosts
-
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-
-127.0.0.1 10-10-87-19
-10.10.87.19 elk.ooxx.com elk
-
-#刷新环境
-hostname -F /etc/hostname
-
-#复查结果
-hostname -f
-elk.ooxx.com
-
-hostname
-elk
-</code></pre></div>
     </article>
     <!-- Duoshuo Comment BEGIN -->
     <div id="comments">
