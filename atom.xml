@@ -7,6 +7,18 @@
         <atom:link href="http://www.stou.info/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>尝试使用VIM做IDE</title>
+                        
+                
+                    <description>&lt;p&gt;写代码，一个好用的IDE不仅可以提升幸福感，同时也可以提升编码的效率。我的IDE历史：editplus-&amp;gt;phpstorm-&amp;gt;sublime text-&amp;gt;phpstorm-&amp;gt;VIM。&lt;/p&gt;
+</description>
+                
+                <pubDate>Tue, 28 Jun 2016 04:00:01 +0800</pubDate>
+                <link>http://www.stou.info/2016/06/28/vim-start.html</link>
+                <guid isPermaLink="true">http://www.stou.info/2016/06/28/vim-start.html</guid>
+            </item>
+        
+            <item>
                 <title>知乎消息系统的设计</title>
                         
                 

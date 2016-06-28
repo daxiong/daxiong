@@ -85,37 +85,42 @@ ga('send', 'pageview');
                 <div class="home">
   
   <header class="post-header">
-    <h1><a href="/2016/01/01/zhihu-message.html">知乎消息系统的设计</a></h1>
-    <p class="meta"><i class="fa fa-calendar"></i> 2016-01-01&nbsp&nbsp&nbsp<i class="fa fa-folder-open"></i>&nbsp&nbsp&nbsp<i class="fa fa-tags"></i>&nbsp&nbsp<a href="/tags/#收藏">收藏</a>&nbsp<a href="/tags/#架构设计">架构设计</a></p>
+    <h1><a href="/2016/06/28/vim-start.html">尝试使用VIM做IDE</a></h1>
+    <p class="meta"><i class="fa fa-calendar"></i> 2016-06-28&nbsp&nbsp&nbsp<i class="fa fa-folder-open"></i>&nbsp&nbsp&nbsp<i class="fa fa-tags"></i>&nbsp&nbsp<a href="/tags/#vim">vim</a>&nbsp<a href="/tags/#技巧">技巧</a></p>
   </header>
   <article class="post-content">
-  <blockquote>
-<p>以下内容引自<a href="http://www.zhihu.com/question/22394809">知乎</a></p>
-</blockquote>
+  <p>写代码，一个好用的IDE不仅可以提升幸福感，同时也可以提升编码的效率。我的IDE历史：editplus-&gt;phpstorm-&gt;sublime text-&gt;phpstorm-&gt;VIM。</p>
 
-<p>知乎的消息系统和邮件系统非常的相似，比如多播（一个问题的回答通知发给多个关注者），比如对话的合并（多个来自同一答案的赞同/感谢会合并为一条），比如收件箱（收到的通知），比如垃圾过滤，比如尽可能高的实时性等等。所以在设计上也参照邮件系统划分了若干个 Agent, 各自完成不同任务。问题说的三个功能，在知乎消息系统中是由两个 Agent 完成的。</p>
+<p>最开始使用editplus不是为了装逼，而是因为那时候年轻，记忆力好，函数名都不需要提醒，另一个原因是因为它快。后来项目越来越大，editplus玩不转了，函数引用嵌套太深，为了更高效的查看文件和跳转，加入了Phpstorm，不过那时电脑还不是SSD，速度慢得受不了，但是为了效率还是继续忍受。</p>
 
-<ul>
-<li>知乎内部为每一个用户行为都定义了唯一的事件，由中央事件总线进行分发。消息系统的 Notification Transfer Agent 会订阅相关的事件进行实时处理，并没有经过数据库进行计算；</li>
-<li>在 Notificatoin Transfer Agent 中会有一个限流器，只有满足条件的事件才会为其发送通知，不满足条件的延迟发送或者不发送。重复的动作在这里会被过滤掉；</li>
-<li>满足发送条件的事件，NTA 会调用一个 Notication Delivery Agent。 </li>
-</ul>
+<p>再后来接触到了sublime text2，不仅速度非快，再配合ctags之类的插件，不仅可以实现函数定位，与PHPStorm完全可以媲美，而且，它更快！后来它一直陪伴了我许多年（甚至多次内部跟其它团队叫嚣，忽悠转入sublime text）。</p>
 
-<p>NDA 会将通知保存给目的用户，并且按照预设的规则创建索引。来自同一个资源的通知索引 key 可能是一样的，所以你能看到多条赞同/感谢的回答的通知被合并在一起。至于如何优化，只要先划分好了角色，每个 Agent 内部面对的问题都是单一的。比如 NTA 依赖的事件总线，主要优化其吞吐率和降低事件丢失率；限流器中对垃圾行为的识别，可以综合用户行为进行评分，或者基于内容进行识别；NDA 中的频繁增删的索引，则需要使用高速读写存储介质（比如 redis），并且考虑其伸缩性（比如 sharding）等等。我们有专门的基础架构团队和算法团队提供解决这些的问题的系统和技术方案。如果再需要了解详细的细节可以另提问题，邀请他们来回答。</p>
+<p><img src="http://127.0.0.1:4000/img/vim/img1.png" alt="sublime text"></p>
 
-<p>知乎消息系统的设计很棒，提炼出以下知识点：</p>
+<p>最爽的就是sublime text高效的文件查找功能，以及可以组合使用的函数定位。</p>
 
-<ul>
-<li>消息系统很重要，rabbitmq,zeromq都很棒</li>
-<li>agent在处理订阅的时候不直接产生消息，交给NAT进行二次处理</li>
-<li>行为唯一的事件非常有用，这一点在天蓬网内得到过真实的验证，对系统解耦非常重要。</li>
-</ul>
+<p><img src="http://127.0.0.1:4000/img/vim/img2.png" alt="sublime text"></p>
+
+<p>后来，项目更大了，ctags不好用了（构建的时间越来越长了），定位变得不准确了，代码提示也变得不友好了。刚好入手了MAC，因为SSD的原因，也就重新回到了PHPStorm，速度还算行。</p>
+
+<p>可是PHPStorm在打开时，以及构建索引和文件查找时，速度依然不理想，想尝试转入VIM试下。毕竟VIM打开文件和速度是杠杠的，而且再配合各类插件，VIM完全可以当IDE，说干就干。</p>
+
+<p><img src="http://127.0.0.1:4000/img/vim/img3.png" alt="sublime text"></p>
+
+<p>左侧为插件TagList，文件查找插件是ctrlp，代码提示是YouCompleteMe，现在使用pathogen来管理插件。</p>
 
   </article>
   
   <ul class="posts">
     <!-- <li class="listing-seperator">Yesterday you said tomorrow</li> -->
   
+  
+    
+    
+    <li class="listing-item">
+      <time datetime="2016-06-28">2016-06-28</time>
+      <a href="/2016/06/28/vim-start.html" title="尝试使用VIM做IDE">尝试使用VIM做IDE</a>
+    </li>
   
     
     
