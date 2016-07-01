@@ -7,6 +7,20 @@
         <atom:link href="http://www.stou.info/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>常见PHP堵塞案例</title>
+                        
+                
+                    <description>&lt;h2&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;众所周知，PHP是单线程同步堵塞模型，基于堵塞的模型，常常我们在开发中一个不小心就会把服务器搞崩，下面将跟大家一起分享常见的堵塞案例。（下图为一个标准的同步堵塞IO）&lt;/p&gt;
+</description>
+                
+                <pubDate>Tue, 28 Jun 2016 04:00:01 +0800</pubDate>
+                <link>http://www.stou.info/2016/06/28/php-block.html</link>
+                <guid isPermaLink="true">http://www.stou.info/2016/06/28/php-block.html</guid>
+            </item>
+        
+            <item>
                 <title>尝试使用VIM做IDE</title>
                         
                 
@@ -16,6 +30,18 @@
                 <pubDate>Tue, 28 Jun 2016 04:00:01 +0800</pubDate>
                 <link>http://www.stou.info/2016/06/28/vim-start.html</link>
                 <guid isPermaLink="true">http://www.stou.info/2016/06/28/vim-start.html</guid>
+            </item>
+        
+            <item>
+                <title>Docker For Deveopment</title>
+                        
+                
+                    <description>&lt;h1&gt;使用docker实现内部开发环境的标准化&lt;/h1&gt;
+</description>
+                
+                <pubDate>Fri, 03 Jun 2016 00:00:00 +0800</pubDate>
+                <link>http://www.stou.info/2016/06/03/docker-for-deveopment.html</link>
+                <guid isPermaLink="true">http://www.stou.info/2016/06/03/docker-for-deveopment.html</guid>
             </item>
         
             <item>
