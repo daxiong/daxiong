@@ -33,18 +33,6 @@
             </item>
         
             <item>
-                <title>Docker For Deveopment</title>
-                        
-                
-                    <description>&lt;h1&gt;使用docker实现内部开发环境的标准化&lt;/h1&gt;
-</description>
-                
-                <pubDate>Fri, 03 Jun 2016 00:00:00 +0800</pubDate>
-                <link>http://www.stou.info/2016/06/03/docker-for-deveopment.html</link>
-                <guid isPermaLink="true">http://www.stou.info/2016/06/03/docker-for-deveopment.html</guid>
-            </item>
-        
-            <item>
                 <title>知乎消息系统的设计</title>
                         
                 
