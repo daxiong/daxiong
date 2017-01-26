@@ -3,8 +3,8 @@
     <channel>
         <title></title>
         <description>PHP,Python,Golang,Linux</description>      
-        <link>http://www.stou.info</link>
-        <atom:link href="http://www.stou.info/feed.xml" rel="self" type="application/rss+xml" />
+        <link>https://stou.info</link>
+        <atom:link href="https://stou.info/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
                 <title>写在2017年初</title>
@@ -14,8 +14,8 @@
 </description>
                 
                 <pubDate>Mon, 16 Jan 2017 05:27:01 +0800</pubDate>
-                <link>http://www.stou.info/2017/01/16/2016-summary.html</link>
-                <guid isPermaLink="true">http://www.stou.info/2017/01/16/2016-summary.html</guid>
+                <link>https://stou.info/2017/01/16/2016-summary.html</link>
+                <guid isPermaLink="true">https://stou.info/2017/01/16/2016-summary.html</guid>
             </item>
         
             <item>
@@ -28,8 +28,8 @@
 </description>
                 
                 <pubDate>Tue, 28 Jun 2016 04:00:01 +0800</pubDate>
-                <link>http://www.stou.info/2016/06/28/php-block.html</link>
-                <guid isPermaLink="true">http://www.stou.info/2016/06/28/php-block.html</guid>
+                <link>https://stou.info/2016/06/28/php-block.html</link>
+                <guid isPermaLink="true">https://stou.info/2016/06/28/php-block.html</guid>
             </item>
         
             <item>
@@ -40,8 +40,8 @@
 </description>
                 
                 <pubDate>Tue, 28 Jun 2016 04:00:01 +0800</pubDate>
-                <link>http://www.stou.info/2016/06/28/vim-start.html</link>
-                <guid isPermaLink="true">http://www.stou.info/2016/06/28/vim-start.html</guid>
+                <link>https://stou.info/2016/06/28/vim-start.html</link>
+                <guid isPermaLink="true">https://stou.info/2016/06/28/vim-start.html</guid>
             </item>
         
             <item>
@@ -54,8 +54,8 @@
 </description>
                 
                 <pubDate>Fri, 01 Jan 2016 04:49:00 +0800</pubDate>
-                <link>http://www.stou.info/2016/01/01/zhihu-message.html</link>
-                <guid isPermaLink="true">http://www.stou.info/2016/01/01/zhihu-message.html</guid>
+                <link>https://stou.info/2016/01/01/zhihu-message.html</link>
+                <guid isPermaLink="true">https://stou.info/2016/01/01/zhihu-message.html</guid>
             </item>
         
             <item>
@@ -66,8 +66,8 @@
 </description>
                 
                 <pubDate>Wed, 30 Dec 2015 04:49:00 +0800</pubDate>
-                <link>http://www.stou.info/2015/12/30/how-to-install-gem-in-china.html</link>
-                <guid isPermaLink="true">http://www.stou.info/2015/12/30/how-to-install-gem-in-china.html</guid>
+                <link>https://stou.info/2015/12/30/how-to-install-gem-in-china.html</link>
+                <guid isPermaLink="true">https://stou.info/2015/12/30/how-to-install-gem-in-china.html</guid>
             </item>
         
             <item>
@@ -78,8 +78,8 @@
 </description>
                 
                 <pubDate>Tue, 29 Dec 2015 04:49:00 +0800</pubDate>
-                <link>http://www.stou.info/2015/12/29/elk-build.html</link>
-                <guid isPermaLink="true">http://www.stou.info/2015/12/29/elk-build.html</guid>
+                <link>https://stou.info/2015/12/29/elk-build.html</link>
+                <guid isPermaLink="true">https://stou.info/2015/12/29/elk-build.html</guid>
             </item>
         
     </channel>
