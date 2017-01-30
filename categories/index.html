@@ -171,43 +171,40 @@ ga('send', 'pageview');
 
         <!-- mathjax -->
         <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
+            MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            });
         </script>
         <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <!-- highlight -->
-        <!--<script src="/js/highlight.pack.js"></script>-->
-        <!--<script>hljs.initHighlightingOnLoad();</script>-->
-        <!-- pleace change it! -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"cnstou"};
-(function() {
-var ds = document.createElement('script');
-ds.type = 'text/javascript';ds.async = true;
-ds.src = (document.location.protocol == 'https:'
-? 'https:' : 'http:') +
-'//static.duoshuo.com/embed.js';
-ds.charset = 'UTF-8';
-(document.getElementsByTagName('head')[0] 
-||
-document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-    </script>
+
+        <script type="text/javascript">
+            var duoshuoQuery = {short_name:"cnstou"};
+            (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:'
+            ? 'https:' : 'http:') +
+            '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            ||
+            document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
         <!-- top-scrooll -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>
         <script type="text/javascript">
-$(window).scroll(function() {
-    if($(this).scrollTop() > 100) {
-        $('.scroll-top').fadeIn(200);
-    } else {
-        $('.scroll-top').fadeOut(200);
-    }
-});
-$('.scroll-top').bind('click', function(e) {
-    e.preventDefault();
-    $('body,html').animate({scrollTop:0},200);
-});
+            $(window).scroll(function() {
+                if($(this).scrollTop() > 100) {
+                    $('.scroll-top').fadeIn(200);
+                } else {
+                    $('.scroll-top').fadeOut(200);
+                }
+            });
+            $('.scroll-top').bind('click', function(e) {
+                e.preventDefault();
+                $('body,html').animate({scrollTop:0},200);
+            });
         </script>
     </body>
 </html>
