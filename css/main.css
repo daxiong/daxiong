@@ -378,7 +378,6 @@ kbd {
 .post-content blockquote {
     font-size: 18px;
     opacity: .6;
-    letter-spacing: -1px;
     background-color:#EAEAF0;
     padding:10px 20px;
     margin:0 0 20px;
