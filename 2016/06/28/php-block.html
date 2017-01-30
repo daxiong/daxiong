@@ -6,18 +6,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>常见PHP堵塞案例</title>
-<link rel="shortcut icon" href=" /img/github.ico"/>
-<link rel="bookmark" href="/img/github.ico"/>
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="PHP,Python,Golang,Linux">
 <link rel="canonical" href="https://stou.info/2016/06/28/php-block.html">
 <!-- Custom CSS -->
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/github.css">
+<link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/github.css">
+    <link rel="stylesheet" href="/css/pygments.css">
 <!-- 返回顶部 -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="/js/jquery.js"></script>
-<script src="/js/function_about.js"></script>
 <!--  -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -88,7 +85,7 @@ ga('send', 'pageview');
         <p class="meta"><i class="fa fa-calendar"></i> 2016-06-28&nbsp&nbsp&nbsp<i class="fa fa-folder-open"></i> <a href="/categories/#原创">原创</a> &nbsp&nbsp&nbsp<i class="fa fa-tags"></i>&nbsp&nbsp<a href="/tags/#PHP">PHP</a></p>
     </header>
     <article class="post-content">
-        <h2>前言w</h2>
+        <h2>前言</h2>
 
 <p>众所周知，PHP是单线程同步堵塞模型，基于堵塞的模型，常常我们在开发中一个不小心就会把服务器搞崩，下面将跟大家一起分享常见的堵塞案例。（下图为一个标准的同步堵塞IO）</p>
 
@@ -108,7 +105,7 @@ ga('send', 'pageview');
 <h3>TOP1:file_get_contents</h3>
 
 <p>最容易也最致命的函数TOP1</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="k">if</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;http://www.xxx.com/api.php&#39;</span><span class="p">)){</span>
     <span class="c1">//dosomething</span>
 <span class="p">}</span><span class="k">else</span><span class="p">{</span>
@@ -126,14 +123,14 @@ ga('send', 'pageview');
 <p>从PHP5.0开始,file_get_contents可以支持context参数了，
 所以如果一定要使用file_get_contents的话，一定要为其提供
 context参数，设定timeout.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="nv">$param</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="nx">‘http’</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span><span class="nx">‘timeout’</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span><span class="nx">’method’</span><span class="o">=&gt;</span><span class="nx">’GET’</span><span class="p">)</span>
 <span class="p">);</span>
 <span class="k">echo</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;http://www.xxx.com/api.php&#39;</span><span class="p">,</span><span class="k">false</span><span class="p">,</span> <span class="nb">stream_context_create</span><span class="p">(</span><span class="nv">$param</span><span class="p">));</span>
 </code></pre></div>
 <p>也可以使用curl替代file_get_contents.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">&#39;http://www.xxx.com/api.php&#39;</span><span class="p">);</span>
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> 
     <span class="k">array</span><span class="p">(</span>
@@ -146,7 +143,7 @@ context参数，设定timeout.</p>
 <h3>TOP2:mysql_connect</h3>
 
 <p>数据库卡顿灾星TOP2</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="nv">$conn</span> <span class="o">=</span> <span class="nb">mysql_connect</span><span class="p">(</span><span class="nx">‘ip</span><span class="o">:</span><span class="mi">3306</span><span class="nx">’</span><span class="p">,</span> <span class="nx">‘root’</span><span class="p">,</span> <span class="nx">‘root’</span><span class="p">);</span>
 <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$conn</span><span class="p">){</span>
     <span class="k">die</span><span class="p">(</span><span class="nx">‘mysql</span> <span class="nx">connect</span> <span class="nx">error’</span><span class="p">);</span>
@@ -159,7 +156,7 @@ context参数，设定timeout.</p>
 <p><strong>规避办法</strong></p>
 
 <p>使用PDO的连接方式替代mysql_connect.PDO有着更加完善的属性配置，以及比mysql_connect更少一层的OO，所以稳定性上、扩展性上，效率上都比mysql_*更优秀。</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="nv">$connect_string</span><span class="p">);</span>
 <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_TIMEOUT</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 <span class="c1">//todo</span>
@@ -171,11 +168,11 @@ context参数，设定timeout.</p>
 <p>文件锁引起的堵塞，体验非常差的函数TOP3</p>
 
 <p>看一下例子，感受一下。</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="c1">//1.php</span>
 <span class="o">@</span><span class="nb">session_start</span><span class="p">();</span>
 <span class="nb">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+</code></pre></div><div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="c1">//2.php</span>
 <span class="o">@</span><span class="nb">session_start</span><span class="p">();</span>
 <span class="k">echo</span> <span class="nx">‘a’</span><span class="p">;</span>
@@ -187,11 +184,11 @@ context参数，设定timeout.</p>
 <p><strong>规避办法</strong></p>
 
 <p>避免使用session，而且就算使用session,也要设置session_handler，避免文件死锁。</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">session.save_handler = memcache </span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="x">session.save_handler = memcache </span>
 <span class="x">session.save_path = &quot;tcp://127.0.0.1:11211&quot; </span>
 </code></pre></div>
 <p>就算一定要使用session,也要做session_write_close。</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="c1">//1.php</span>
 <span class="o">@</span><span class="nb">session_start</span><span class="p">();</span>
 <span class="nb">session_write_close</span><span class="p">();</span>
@@ -202,7 +199,7 @@ context参数，设定timeout.</p>
 <h3>TOP1:忘记关闭连接</h3>
 
 <p>在非连接池的情况下，很多人都习惯打开链接以后就不管了，反正会有gc，但事实下，gc并没有值得信赖。</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="nv">$conn</span> <span class="o">=</span> <span class="nb">mysql_connect</span><span class="p">(</span><span class="nx">…</span><span class="p">);</span>
 <span class="c1">//dosomething</span>
 </code></pre></div>
@@ -224,7 +221,7 @@ context参数，设定timeout.</p>
 <h3>TOP2：大量并发UPDATE +1</h3>
 
 <p>很多人以为我只是普通的UPDATE啊，为什么会把数据库卡死？</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="nx">‘UPDATE</span> <span class="sb">`table`</span> <span class="nx">SET</span> <span class="nx">column</span><span class="o">=</span><span class="nx">column</span><span class="o">+</span><span class="mi">1</span> <span class="nx">WHERE</span> <span class="nx">id</span><span class="o">=</span><span class="mi">1</span><span class="nx">’</span><span class="p">;</span>
 </code></pre></div>
 <p>某统计模块，在对每一次请求的时候都会对某表的某字段进行自加1操作。
@@ -311,12 +308,10 @@ MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 });
         </script>
-        <script type="text/javascript"
-                src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <!-- highlight -->
-        <script src="/js/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+        <!--<script src="/js/highlight.pack.js"></script>-->
+        <!--<script>hljs.initHighlightingOnLoad();</script>-->
         <!-- pleace change it! -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"cnstou"};

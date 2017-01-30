@@ -333,37 +333,18 @@ a:visited { color: #7C7C7C; }
 /* CODE
 =============================================================================*/
 
-pre, code, tt {
-    color:#d14;
-  font-size: 12px;
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
-}
-
-code, tt {
-  margin: 0 0px;
-  padding: 0px 0px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  background-color: #f8f8f8;
-  border-radius: 3px;
-}
-
-pre>code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent;
-}
-
 pre {
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px;
+    font-family: 'Consolas', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.015em;
+    line-height: 120%;
+    padding: 0.5em;
+    background-color: #f8f8f8;
+}
+
+pre a {
+    color: inherit;
+    text-decoration: underline;
 }
 
 pre code, pre tt {
@@ -786,49 +767,49 @@ li.listing-seperator:before {
     text-align: center;
 }
 
-#code {
-    float: left;
-    color: #4D4D4C;
-    font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif";
-    font-size: 14px;
-    font-weight:bold;
-    padding-left: 120px;
-    padding-bottom: 30px;
-    line-height: 1.3;
-}
+/*#code {*/
+    /*float: left;*/
+    /*color: #4D4D4C;*/
+    /*font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif";*/
+    /*font-size: 14px;*/
+    /*font-weight:bold;*/
+    /*padding-left: 120px;*/
+    /*padding-bottom: 30px;*/
+    /*line-height: 1.3;*/
+/*}*/
 
-#code .number{
-    color: #ae81ff;
-}
+/*#code .number{*/
+    /*color: #ae81ff;*/
+/*}*/
 
-#code .u{
-    color: red;
-}
+/*#code .u{*/
+    /*color: red;*/
+/*}*/
 
-#code .string{
-    color: #ED9C28;
-}
-#code .value{
-    color: #080;
-}
+/*#code .string{*/
+    /*color: #ED9C28;*/
+/*}*/
+/*#code .value{*/
+    /*color: #080;*/
+/*}*/
 
-#code .keyword{
-    color: #F92672;
-    font-weight:bold;
-}
+/*#code .keyword{*/
+    /*color: #F92672;*/
+    /*font-weight:bold;*/
+/*}*/
 
-#code .placeholder{
-    margin-left:30px;
-}
+/*#code .placeholder{*/
+    /*margin-left:30px;*/
+/*}*/
 
-#code .space{
-    margin-left:7px;
-}
+/*#code .space{*/
+    /*margin-left:7px;*/
+/*}*/
 
-#code .comments{
-    color: #8E908C;
-    font-weight: normal;
-}
+/*#code .comments{*/
+    /*color: #8E908C;*/
+    /*font-weight: normal;*/
+/*}*/
 
 #copyright{
     margin-top: 10px;
