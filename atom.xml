@@ -7,6 +7,18 @@
         <atom:link href="https://stou.info/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>MAC把socks5转为http代理</title>
+                        
+                
+                    <description>&lt;p&gt;工作中经常遇到使用了socks5的隧道远程操作的情况，不过很多工具是不支持socks5代理的，比如终端。但是很多工具是支持http代理的，那我们就需要一个工具把socks5转为http proxy。&lt;/p&gt;
+</description>
+                
+                <pubDate>Fri, 09 Mar 2018 20:59:01 +0800</pubDate>
+                <link>https://stou.info/2018/03/09/mac-socket5-to-http-proxy.html</link>
+                <guid isPermaLink="true">https://stou.info/2018/03/09/mac-socket5-to-http-proxy.html</guid>
+            </item>
+        
+            <item>
                 <title>17年三亚之行</title>
                         
                 
