@@ -82,51 +82,23 @@ ga('send', 'pageview');
                 <div class="home">
   
   <header class="post-header">
-    <h1><a href="/2018/03/09/mac-socket5-to-http-proxy.html">MAC把socks5转为http代理</a></h1>
-    <p class="meta"><i class="fa fa-calendar"></i> 2018-03-09&nbsp&nbsp&nbsp<i class="fa fa-folder-open"></i> <a href="/categories/#原创">原创</a> &nbsp&nbsp&nbsp<i class="fa fa-tags"></i>&nbsp&nbsp<a href="/tags/#MAC">MAC</a></p>
+    <h1><a href="/2018/03/20/zomwork-design.html">Zomwork海外平台设计实践</a></h1>
+    <p class="meta"><i class="fa fa-calendar"></i> 2018-03-20&nbsp&nbsp&nbsp<i class="fa fa-folder-open"></i>&nbsp&nbsp&nbsp<i class="fa fa-tags"></i>&nbsp</p>
   </header>
   <article class="post-content">
-  <p>工作中经常遇到使用了socks5的隧道远程操作的情况，不过很多工具是不支持socks5代理的，比如终端。但是很多工具是支持http代理的，那我们就需要一个工具把socks5转为http proxy。</p>
-
-<h3>MAC上的polipo玩法</h3>
-
-<p>比较简单的做法是使用 <code>polipo</code></p>
-<div class="highlight"><pre><code class="language-shell" data-lang="shell"><span></span>$ brew install polipo
-$ sudo cp /opt/local/etc/polipo/config.sample /opt/local/etc/polipo/config
-</code></pre></div>
-<p>内容如下：</p>
-<div class="highlight"><pre><code class="language-shell" data-lang="shell"><span></span><span class="c1"># Mac: /opt/local/etc/polipo/config</span>
-<span class="c1"># Ubuntu: /etc/polipo/config</span>
-<span class="nv">socksParentProxy</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:1080&quot;</span>
-<span class="nv">socksProxyType</span> <span class="o">=</span> socks5
-<span class="nv">proxyAddress</span> <span class="o">=</span> <span class="s2">&quot;::0&quot;</span>        <span class="c1"># both IPv4 and IPv6</span>
-<span class="c1"># or IPv4 only</span>
-<span class="c1"># proxyAddress = &quot;0.0.0.0&quot;</span>
-<span class="nv">proxyPort</span> <span class="o">=</span> <span class="m">8123</span>
-</code></pre></div>
-<p>启动polipo</p>
-<div class="highlight"><pre><code class="language-shell" data-lang="shell"><span></span>$ polipo -c /opt/local/etc/polipo/config
-</code></pre></div>
-<p>那么这样，我们就实现了一个<code>127.0.0.1:8123</code>的http代理了。</p>
-
-<h4>终端使用代理的玩法</h4>
-
-<p>由于mac的终端是可以通过设置http_proxy环境变量来实现代理的设置的，方法如下：</p>
-<div class="highlight"><pre><code class="language-shell" data-lang="shell"><span></span>$ <span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://127.0.0.1:8123
-$
-$ <span class="c1">#把以上代理注册为快速命令</span>
-$ <span class="nb">alias</span> <span class="nv">hp</span><span class="o">=</span><span class="s2">&quot;http_proxy=http://127.0.0.1:8123”</span>
-$<span class="s2"></span>
-$<span class="s2"> #使用代理来执行命令</span>
-$<span class="s2"> hp curl ip.gs</span>
-$<span class="s2"></span>
-$<span class="s2"> # 看看是不是已经成功走了代理了?</span>
-</code></pre></div>
+  
   </article>
   
   <ul class="posts">
     <!-- <li class="listing-seperator">Yesterday you said tomorrow</li> -->
   
+  
+    
+    
+    <li class="listing-item">
+      <time datetime="2018-03-20">2018-03-20</time>
+      <a href="/2018/03/20/zomwork-design.html" title="Zomwork海外平台设计实践">Zomwork海外平台设计实践</a>
+    </li>
   
     
     
