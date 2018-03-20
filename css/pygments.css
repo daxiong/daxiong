@@ -1,5 +1,5 @@
 pre .hll { background-color: #ffffcc }
-pre  { background: #f0f0f0; border-radius:3px;-moz-border-radius:3px; /* 老的 Firefox */; word-wrap:break-word;  word-break:break-all;padding:15px;white-space:normal}
+pre  { background: #f0f0f0; border-radius:3px;-moz-border-radius:3px; /* 老的 Firefox */; word-wrap:break-word;  word-break:break-all;padding:15px;white-space:pre-line}
 pre .c { color: #60a0b0; font-style: italic } /* Comment */
 pre .err { border: 1px solid #FF0000 } /* Error */
 pre .k { color: #007020; font-weight: bold } /* Keyword */
