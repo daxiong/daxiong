@@ -10,7 +10,10 @@
                 <title>新加坡海外平台搭建实践</title>
                         
                 
-                    <description>&lt;h3&gt;机遇和背景&lt;/h3&gt;
+                    <description>&lt;ul&gt;
+&lt;li&gt;目录
+{:toc}&lt;/li&gt;
+&lt;/ul&gt;
 </description>
                 
                 <pubDate>Tue, 20 Mar 2018 00:00:00 +0800</pubDate>
@@ -46,7 +49,7 @@
                 <title>我的MAC常用软件</title>
                         
                 
-                    <description>&lt;h1&gt;DMG类&lt;/h1&gt;
+                    <description>&lt;h1 id=&quot;dmg&quot;&gt;DMG类&lt;/h1&gt;
 </description>
                 
                 <pubDate>Fri, 27 Jan 2017 07:20:01 +0800</pubDate>
@@ -70,7 +73,7 @@
                 <title>常见PHP堵塞案例</title>
                         
                 
-                    <description>&lt;h2&gt;前言&lt;/h2&gt;
+                    <description>&lt;h2 id=&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;众所周知，PHP是单线程同步堵塞模型，基于堵塞的模型，常常我们在开发中一个不小心就会把服务器搞崩，下面将跟大家一起分享常见的堵塞案例。（下图为一个标准的同步堵塞IO）&lt;/p&gt;
 </description>

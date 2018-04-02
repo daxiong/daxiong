@@ -28,7 +28,7 @@ ga('send', 'pageview');
 </script>
 </head>
 
-    <body>
+    <body  data-spy="scroll" data-target=".toc" data-offset="20">
         <header class="site-header">
     <div class="wrap">
         <a class="site-title" href="/"><h1><strong> <font
@@ -79,13 +79,15 @@ ga('send', 'pageview');
 
         <div class="page-content">
             <div class="wrap">
-                <div class="post">
+                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<div class="post">
     <header class="post-header">
         <h1><a href="/2016/06/28/php-block.html">常见PHP堵塞案例</a></h1>
         <p class="meta"><i class="fa fa-calendar"></i> 2016-06-28&nbsp&nbsp&nbsp<i class="fa fa-folder-open"></i> <a href="/categories/#原创">原创</a> &nbsp&nbsp&nbsp<i class="fa fa-tags"></i>&nbsp&nbsp<a href="/tags/#PHP">PHP</a></p>
     </header>
+    <div class="toc"></div>
     <article class="post-content">
-        <h2>前言</h2>
+        <h2 id=">前言</h2>
 
 <p>众所周知，PHP是单线程同步堵塞模型，基于堵塞的模型，常常我们在开发中一个不小心就会把服务器搞崩，下面将跟大家一起分享常见的堵塞案例。（下图为一个标准的同步堵塞IO）</p>
 
@@ -100,9 +102,9 @@ ga('send', 'pageview');
 <li>4.为什么消费者非常空闲，却无法消费？</li>
 </ul>
 
-<h2>常见的几个堵塞函数</h2>
+<h2 id=">常见的几个堵塞函数</h2>
 
-<h3>TOP1:file_get_contents</h3>
+<h3 id="top1-file_get_contents">TOP1:file_get_contents</h3>
 
 <p>最容易也最致命的函数TOP1</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
@@ -140,7 +142,7 @@ context参数，设定timeout.</p>
 <span class="p">);</span>
 <span class="k">echo</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 </code></pre></div>
-<h3>TOP2:mysql_connect</h3>
+<h3 id="top2-mysql_connect">TOP2:mysql_connect</h3>
 
 <p>数据库卡顿灾星TOP2</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
@@ -163,7 +165,7 @@ context参数，设定timeout.</p>
 </code></pre></div>
 <p>或者使用fsockopen或者mysql_ping预访问数据库，防止进入堵塞死循环。</p>
 
-<h3>TOP3:session_start</h3>
+<h3 id="top3-session_start">TOP3:session_start</h3>
 
 <p>文件锁引起的堵塞，体验非常差的函数TOP3</p>
 
@@ -194,9 +196,9 @@ context参数，设定timeout.</p>
 <span class="nb">session_write_close</span><span class="p">();</span>
 <span class="nb">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </code></pre></div>
-<h2>其它引起堵塞的场景</h2>
+<h2 id=">其它引起堵塞的场景</h2>
 
-<h3>TOP1:忘记关闭连接</h3>
+<h3 id="top1">TOP1:忘记关闭连接</h3>
 
 <p>在非连接池的情况下，很多人都习惯打开链接以后就不管了，反正会有gc，但事实下，gc并没有值得信赖。</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
@@ -218,7 +220,7 @@ context参数，设定timeout.</p>
 <li>4.注册register_shutdown_function事件，自动释放变量和资源。</li>
 </ul>
 
-<h3>TOP2：大量并发UPDATE +1</h3>
+<h3 id="top2-update-1">TOP2：大量并发UPDATE +1</h3>
 
 <p>很多人以为我只是普通的UPDATE啊，为什么会把数据库卡死？</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
@@ -245,7 +247,7 @@ decrement)；</li>
 都是很不错的软件。</li>
 </ul>
 
-<h3>TOP3：consumer执行复杂运算</h3>
+<h3 id="top3-consumer">TOP3：consumer执行复杂运算</h3>
 
 <p>在队列中，单个consumer执行复杂的逻辑时，往往会卡住其它本机consumer。多个conumser之间尽量少涉及相同的数据行操作，避免锁引起的等待。</p>
 

@@ -28,7 +28,7 @@ ga('send', 'pageview');
 </script>
 </head>
 
-    <body>
+    <body  data-spy="scroll" data-target=".toc" data-offset="20">
         <header class="site-header">
     <div class="wrap">
         <a class="site-title" href="/"><h1><strong> <font
@@ -79,15 +79,17 @@ ga('send', 'pageview');
 
         <div class="page-content">
             <div class="wrap">
-                <div class="post">
+                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<div class="post">
     <header class="post-header">
         <h1><a href="/2018/03/09/mac-socket5-to-http-proxy.html">MAC把socks5转为http代理</a></h1>
         <p class="meta"><i class="fa fa-calendar"></i> 2018-03-09&nbsp&nbsp&nbsp<i class="fa fa-folder-open"></i> <a href="/categories/#原创">原创</a> &nbsp&nbsp&nbsp<i class="fa fa-tags"></i>&nbsp&nbsp<a href="/tags/#MAC">MAC</a></p>
     </header>
+    <div class="toc"></div>
     <article class="post-content">
         <p>工作中经常遇到使用了socks5的隧道远程操作的情况，不过很多工具是不支持socks5代理的，比如终端。但是很多工具是支持http代理的，那我们就需要一个工具把socks5转为http proxy。</p>
 
-<h3>MAC上的polipo玩法</h3>
+<h3 id="mac-polipo">MAC上的polipo玩法</h3>
 
 <p>比较简单的做法是使用 <code>polipo</code></p>
 <div class="highlight"><pre><code class="language-shell" data-lang="shell"><span></span>$ brew install polipo
@@ -108,7 +110,7 @@ $ sudo cp /opt/local/etc/polipo/config.sample /opt/local/etc/polipo/config
 </code></pre></div>
 <p>那么这样，我们就实现了一个<code>127.0.0.1:8123</code>的http代理了。</p>
 
-<h4>终端使用代理的玩法</h4>
+<h4 id=">终端使用代理的玩法</h4>
 
 <p>由于mac的终端是可以通过设置http_proxy环境变量来实现代理的设置的，方法如下：</p>
 <div class="highlight"><pre><code class="language-shell" data-lang="shell"><span></span>$ <span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://127.0.0.1:8123
